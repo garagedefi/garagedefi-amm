@@ -11,10 +11,24 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
-      "name": "Viking Swap",
-      "symbol": "VIKING",
-      "address": "0x896eDE222D3f7f3414e136a2791BDB08AAa25Ce0",
-      "chainId": 56,
+      "name": "FLASH Swap",
+      "symbol": "FLASHT",
+      "address": "0xb06c05c36efea317cd6fffebf04671560def1867",
+      "chainId": 97,
+      "decimals": 18
+    },
+    {
+      "name": "BNB Token",
+      "symbol": "BNB",
+      "address": "0x2b8ff854c5e16cf35b9a792390cc3a2a60ec9ba2",
+      "chainId": 97,
+      "decimals": 18
+    },
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7",
+      "chainId": 97,
       "decimals": 18
     },
     {
@@ -46,14 +60,6 @@
       "chainId": 97,
       "decimals": 18,
       "logoURI": "/images/coins/ETH.png"
-    },
-    {
-      "name": "BUSD Token",
-      "symbol": "BUSD",
-      "address": "0x615446C0Fd5eA8A5FD7fb763f3FC2C58774474F3",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "/images/coins/BTC.png"
     },
     {
       "name": "Bakery Token",

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap-libs/sdk'
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@flash-swap/sdk'
 import { Button, CardBody, AddIcon, Text as UIKitText } from '@pancakeswap-libs/uikit'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
@@ -165,15 +165,29 @@ export default function AddLiquidity({
       value = null
     }
 
+    const test2 = await router.estimateGas;
+    console.log(test2);
+
+    console.log("3");
+
+    console.log(value);
+    console.log(args);
+
+    const test = await estimate(...args, value ? { value } : {})
+    console.log(test);
+
     setAttemptingTxn(true)
     // const aa = await estimate(...args, value ? { value } : {})
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
-        method(...args, {
+      method(...args, {
           ...(value ? { value } : {}),
           gasLimit: calculateGasMargin(estimatedGasLimit),
         }).then((response) => {
+          console.log("4");
           setAttemptingTxn(false)
+
+          
 
           addTransaction(response, {
             summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
@@ -186,6 +200,8 @@ export default function AddLiquidity({
       )
       .catch((e) => {
         setAttemptingTxn(false)
+        console.log("catching error");
+
         // we only care if the error is something _other_ than the user rejected the tx
         if (e?.code !== 4001) {
           console.error(e)
